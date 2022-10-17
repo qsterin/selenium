@@ -10,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CardTest {
     private WebDriver driver;
@@ -19,7 +18,6 @@ public class CardTest {
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
-
     @BeforeEach
     void setUp(){
         ChromeOptions options = new ChromeOptions();
@@ -32,7 +30,6 @@ public class CardTest {
         driver.quit();
         driver = null;
     }
-
     @Test
     void test() {
         driver.get("http://localhost:9999");
