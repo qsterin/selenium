@@ -42,7 +42,8 @@ public class CardTest {
 
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button__content")).click();
-        String text = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText().trim();
-        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text);
+        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
+        String actual = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText().trim();
+        Assertions.assertEquals(expected, actual);
     }
 }
