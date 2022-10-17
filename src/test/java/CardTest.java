@@ -16,7 +16,6 @@ public class CardTest {
 
     @BeforeAll
     static void setupClass() {
-        System.setProperty("web-driver.chrome.driver","driver/chromedriver");
         WebDriverManager.chromedriver().setup();
     }
     @BeforeEach
@@ -25,18 +24,18 @@ public class CardTest {
         options.setHeadless(true);
         driver = new ChromeDriver(options);
     }
-
     @AfterEach
     void tearDown() {
         driver.quit();
         driver = null;
     }
+
     @Test
     void test() {
         driver.get("http://localhost:9999");
-        List<WebElement> list = driver.findElements(By.className("input__control"));
-        list.get(0).sendKeys("Александр Иванов");
-        list.get(1).sendKeys("+79991201108");
+
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Петров-Иванов");
+        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991201108");
 
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button__content")).click();
