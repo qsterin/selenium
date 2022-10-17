@@ -16,6 +16,7 @@ public class CardTest {
 
     @BeforeAll
     static void setupClass() {
+        System.setProperty("web-driver.chrome.driver","driver/chromedriver");
         WebDriverManager.chromedriver().setup();
     }
     @BeforeEach
@@ -26,7 +27,7 @@ public class CardTest {
     }
 
     @AfterEach
-    void tearsDown() {
+    void tearDown() {
         driver.quit();
         driver = null;
     }
