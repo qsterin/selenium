@@ -31,7 +31,6 @@ public class CardTest {
         driver = null;
     }
 
-
     @Test
     void test() {
         driver.get("http://localhost:9999");
